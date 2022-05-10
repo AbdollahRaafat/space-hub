@@ -1,0 +1,12 @@
+.navbar {
+  border: 2px solid black;
+}
+
+#logo {
+  width: 50px;
+  display: inline-block;
+}
+
+h1 {
+  display: inline;
+}
