@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Cambay&family=Kanit&family=Krona+One&family=Montserrat:wght@300;900&family=Poppins:wght@200&family=Prompt:wght@300;500&family=Quicksand:wght@300&family=Roboto&family=Roboto+Flex:opsz,wght@8..144,100&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
 .navbar {
   width: 100%;
   display: flex;
@@ -20,6 +29,17 @@
 .active {
   color: #fff;
   background-color: blueviolet;
+}
+
+.mission {
+  display: flex;
+  font-size: 13px;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.mission p {
+  margin: 0 20px;
 }
 
 #logo {
