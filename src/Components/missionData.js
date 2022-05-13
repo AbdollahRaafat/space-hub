@@ -1,17 +1,20 @@
-import React from 'react';
-import '../styles/navbar.css';
-import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const MissionData = () => {
-  const data = useSelector((state) => state.resrvationReducer);
+const MissionData = ({
+  desc, name,
+}) => {
+
   return (
     <div className='mission'>
-      <h1>{data.name}</h1>
-      <p>{data.description}</p>
-      <button>{data.stateMember}</button>
-      <button>{data.stateJoin}</button>
+      <h1>{name}</h1>
+      <p>{desc}</p>
     </div>
   );
+};
+
+MissionData.propTypes = {
+  name: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired,
 };
 
 export default MissionData;
