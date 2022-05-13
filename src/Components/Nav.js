@@ -10,7 +10,7 @@ const NavBar = () => {
       <h1>Space hub</h1>
       </div>
       <div className='links'>
-        <NavLink to='/'>Rockets</NavLink>
+        <NavLink to='/Rockets'>Rockets</NavLink>
         <NavLink to='/Mission'>Mission</NavLink>
         <NavLink to='/MyProfile'>MyProfile</NavLink>
       </div>
