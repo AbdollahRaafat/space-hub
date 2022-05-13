@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import '../styles/navbar.css';
 
 const MissionData = ({
   desc, name,
@@ -6,8 +7,10 @@ const MissionData = ({
 
   return (
     <div className='mission'>
-      <h1>{name}</h1>
+      <h4>{name}</h4>
       <p>{desc}</p>
+      <button type='button'>No a member</button>
+      <button type='button'>Join mission</button>
     </div>
   );
 };
