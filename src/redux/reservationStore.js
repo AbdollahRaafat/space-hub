@@ -1,14 +1,17 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { legacy_createStore as createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 import resrvationReducer from './resevations/confugStore';
+import rocketsReducer from './rockets/rockets';
 
-const reducer = combineReducers({
+const rootReducer = combineReducers({
+  rocketsReducer,
   resrvationReducer,
-  // additional reducers could be added here
 });
 
 const store = createStore(
-  reducer,
-  applyMiddleware(),
+  rootReducer,
+  applyMiddleware(logger, thunk),
 );
 
 export default store;
