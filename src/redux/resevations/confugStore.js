@@ -1,54 +1,42 @@
-const ADD_RESERVATION = './space-travelers/missions/ADD_RESERVATION';
-const DELETE_RESERVATION = './space-travelers/missions/DELETE_RESERVATION';
-const GET_MISSION = './space-travelers/missions/GET_MISSION';
-const url = 'https://api.spacexdata.com/v3/missions';
+const JOIN_MISSON = 'ADD_RESERVATION';
+const LEAVE_MISSION = 'REMOVE_RESERVATON';
+const GET_MISSIONS = 'bGET_MISSIN';
 
-const stateInit = [];
-
-export const addReservation = (payload) => ({
-  type: ADD_RESERVATION,
+const initialState = {
+  name:'MissionData',
+  description: 'Irene Vlachou is a typeface designer based in Athens, Greece. She holds an MA in Typeface Design from the University of Reading. Irene has collaborated with international type foundries and corporations, working as a typeface designer and a consultant for Greek typefaces. From 2013 to 2019.',
+  stateMember: 'No a menbre',
+  stateJoin:'Join Mission',
+};
+export const joinMission = (payload) => ({
+  type: JOIN_MISSON,
   payload,
 });
 
-export const getMissions = (payload) => ({
-  type: GET_MISSION,
+export const leaveMission = (payload) => ({
+  type: LEAVE_MISSION,
   payload,
 });
 
-export const deleteReservation = (payload) => ({
-  type: DELETE_RESERVATION,
+export const getMission = (payload) => ({
+  type: GET_MISSIONS,
   payload,
 });
 
-const resrvationReducer = (state = stateInit, action) => {
+const resrvationReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_RESERVATION: {
-      const nextState = state.map((mission) => (
-        (mission.id !== action.payload) ? mission : { ...mission, reserv: true }));
-      return [...nextState];
-    }
-    case GET_MISSION:
+    case JOIN_MISSON:
+      return [...state, action.payload];
+
+    case LEAVE_MISSION:
+      return state.filter((book) => book.id !== action.payload);
+
+    case GET_MISSIONS:
       return action.payload;
-    case DELETE_RESERVATION:
-      return state.map((mission) => (
-        (mission.id !== action.payload) ? mission : { ...mission, reserv: false }));
+
     default:
       return state;
   }
-};
-
-export const getRocketList = () => async (dispatch) => {
-  const missionList = await fetch(`${url}`)
-    .then((resp) => resp.json());
-  const infoArr = [];
-  missionList.map((mission) => infoArr.push({
-    id: mission.id,
-    desc: mission.description,
-    name: mission.mission_name,
-    // img: mission.flickr_images[0],
-    reserv: false,
-  }));
-  dispatch(getMissions(infoArr));
 };
 
 export default resrvationReducer;
