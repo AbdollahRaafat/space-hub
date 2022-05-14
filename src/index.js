@@ -1,27 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
+import { HashRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './redux/reservationStore';
+import store from './store/configureStore';
 import './index.css';
-import Mission from './Components/Mission';
-import MyProfile from './Components/MyProfile';
-import AllRockets from './Components/AllRockets';
-import NavBar from './Components/Nav';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const container = document.getElementById('root');
+const root = createRoot(container);
 root.render(
   <React.StrictMode>
-    <Router>
-      <Provider store={store}>
-        <NavBar />
-        <Routes>
-          <Route path='/Rockets' element={<AllRockets />}/>
-          <Route path='/Mission' element={<Mission />}/>
-          <Route path='/MyProfile' element={<MyProfile />}/>
-        </Routes>
-      </Provider>
-    </Router>
-  </React.StrictMode>
+    <Provider store={store}>
+      <Router>
+        <App />
+      </Router>
+    </Provider>
+  </React.StrictMode>,
 );
-
+reportWebVitals();
