@@ -32,14 +32,28 @@
 }
 
 .mission {
+  border: 1px #000 solid;
   display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 13px;
   width: 90%;
-  margin: 20px auto;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.mission h4 {
+  width: 15%;
 }
 
 .mission p {
   margin: 0 20px;
+  width: 60%;
+}
+
+.mission button {
+  width: 10%;
+  margin: 10px;
 }
 
 #logo {
